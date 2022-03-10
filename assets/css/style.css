@@ -1,0 +1,663 @@
+/*====================  GOOGLE FONTS  ====================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/*====================  VERIABLES CSS  ====================*/
+:root {
+    --header-height: 3rem;
+
+    /*=========  Logo Colors  ==========*/
+    --logo-first-color: #1D1D1B;
+    --logo-second-color: #409DCA;
+
+    /*=========  Colors  =========*/
+    /* Change favorite color*/
+    --hue-color: 200; /*Purple 250 - Green 142 - Blue 200 - Pink 340*/
+
+    /* HSL color mode */
+    --first-color: hsl(var(--hue-color), 69%, 61%);
+    --first-color-second: hsl(var(--hue-color), 69%, 61%);
+    --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --text-color: hsl(var(--hue-color), 8%, 45%);
+    --text-color-light: hsl(var(--hue-color), 8%, 75%);
+    --input-color: hsl(var(--hue-color), 70%, 96%);
+    --body-color: hsl(var(--hue-color), 60%, 99%);
+    --container-color: #FFF;
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+    /*=========  Font and typography  =========*/
+    --body-font: 'Poppins', sans-serif;
+
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*=========  Font weight  =========*/
+    --font-medium: 500; 
+    --font-semi-bold: 600;
+
+    /*=========  Margenes Bottom  =========*/
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /*=========  z index  =========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+} 
+
+/*======================  BASE  ======================*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1,h2,h3,h4{
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*======================  REUSABLE CSS CLASSES  ======================*/
+.section{
+    padding: 2rem 0 4rem;
+}
+
+.section__title{
+    font-size: var(--h1-font-size);
+}
+
+.section__subtitle{
+    display: block;
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-3);
+}
+
+.section__subtitle_two{
+    margin-top: .25rem;
+    padding: 0 1rem 0 1rem;
+}
+
+.section__title,
+.section__subtitle{
+    text-align: center;
+}
+
+.box__shadow {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: .4s;
+}
+
+/*======================  LAYOUT  ======================*/
+.container{
+    max-width: 768px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+}
+
+.grid{
+    display: grid;
+    gap: 1.5rem;
+}
+
+.header{
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 2px 4px hsl(0deg 0% 1% / 10%);
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--body-color);
+}
+
+/*======================  NAV  ======================*/
+.nav{
+    max-width: 968px;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo__width{
+    max-width: 8rem;
+}
+
+.width__logo {
+    width: 10rem;
+}
+
+.logo__first_color {
+    fill: var(--logo-first-color);
+}
+
+.logo__second_color {
+    fill: var(--logo-second-color);
+}
+
+.nav__logo,
+.nav__toggle{
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__logo:hover{
+    color: var(--first-color);
+}
+
+.nav__toggle{
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.nav__toggle:hover{
+    color: var(--first-color);
+}
+
+@media screen and (max-width: 767px){
+    .nav__menu{
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 45%;
+        height: 100%;
+        background-color: var(--body-color);
+        padding: 2rem 1.5rem 4rem;
+        box-shadow: 1px 0 4px rgba(0,0,0,.15);
+        transition: .3s;
+    }
+}
+
+.nav__list{
+    margin-top: var(--mb-1-5);
+    gap: 2rem;
+}
+
+.nav__link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    position: relative;
+}
+
+.nav__link::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    bottom: -.25rem;
+    left: 0;
+    background-color: #1D1D1B;
+    transition: all .4s;
+}
+
+.nav__link:hover::before{
+    width: 50%;
+}
+
+.nav__icon{
+    font-size: 1.2rem;
+}
+
+.nav__btns{
+    display: flex;
+    align-items: center;
+}
+
+.nav__close{
+    position: absolute;
+    right: 1.3rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--first-color);
+}
+
+.nav__close:hover{
+    color: var(--first-color-alt);
+}
+
+/* Show menu */
+.show-menu{
+    left: 0;
+}
+
+/* Active link */
+.active-link::before{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 50%;
+    bottom: -.25rem;
+    left: 0;
+    background-color: #1D1D1B;
+}
+
+/* Change background header */
+.scroll-header{
+    box-shadow: 0 -1px 4px rgba(0,0,0,.15);
+}
+
+/*======================  HOME  ======================*/
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    background-size: cover;
+    background-image: url("../img/home-bg.jpg");
+}
+
+.home__title {
+    font-size: var(--h3-font-size);
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(255,255,255,.1);
+    box-shadow: 0 4px 30px rgba(0,0,0,.1);
+    backdrop-filter: blur(2px);
+}
+
+PHYSIOTHERAPY
+.button{
+    display: inline-block;
+    background-color: var(--first-color);
+    color: #FFF;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-weight: var(--font-medium);
+}
+
+.button:hover{
+    background-color: var(--first-color-alt);
+}
+
+.button__icon{
+    font-size: 1rem;
+    margin-left: var(--mb-0-5);
+    transition: .3s;
+}
+
+.button--white{
+    background-color: #FFF;
+    color: var(--first-color);
+    transition: .3s;
+}
+
+.button--white:hover{
+    transform: scale(1.1);
+    background-color: #FFF;
+}
+
+.button--flex{
+    display: inline-block;
+    align-items: center;
+}
+
+.button--small{
+    padding: .75rem 1rem;
+}
+
+.button--link{
+    padding: 0;
+    background-color: transparent;
+    color: var(--first-color);
+}
+
+.button--link:hover{
+    background-color: transparent;
+    color: var(--first-color-alt);
+}
+
+/*======================  PHYSIOTHERAPY  ======================*/
+.physiotherapy__container {
+    padding-top: 1rem;
+}
+
+.physiotherapy__card {
+    background-color: #f1f1f1;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.physiotherapy__card:hover.box__shadow {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.physiotherapy__img {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.pysiotherapy__bg-one {
+    background-image: url(../img/fiziktedavi-1.jpeg);
+}
+
+.pysiotherapy__bg-two {
+    background-image: url(../img/fiziktedavi-2.jpg);
+}
+
+.pysiotherapy__bg-three {
+    background-image: url(../img/fiziktedavi-3.jpg);
+}
+
+.pysiotherapy__bg-four {
+    background-image: url(../img/fiziktedavi-4.jpg);
+}
+
+.pysiotherapy__bg-five {
+    background-image: url(../img/fiziktedavi-5.jpg);
+}
+
+.pysiotherapy__bg-six {
+    background-image: url(../img/fiziktedavi-6.jpg);
+}
+
+.pysiotherapy__bg-seven {
+    background-image: url(../img/fiziktedavi-7.jpg);
+}
+
+.pysiotherapy__bg-eight {
+    background-image: url(../img/fiziktedavi-8.jpg);
+}
+
+.pysiotherapy__bg-nine {
+    background-image: url(../img/fiziktedavi-9.jpg);
+}
+
+.pysiotherapy__bg-ten {
+    background-image: url(../img/fiziktedavi-10.jpg);
+}
+
+.physiotherapy__title {
+    width: max-content;
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    padding: 1rem 0;
+    margin: 0 auto;
+}
+
+.physiotherapy__item {
+    margin: 0 auto;
+}
+
+.physiotherapy__button {
+    width: max-content;
+    color: var(--first-color);
+    font-size: var(--small-font-size);
+    display: flex;
+    align-items: center;
+    column-gap: .25rem; 
+}
+
+.physiotherapy__button:hover .physiotherapy__icon {
+    transform: translateX(5px);
+}
+
+.physiotherapy__icon {
+    font-size: 1rem;
+    transition: .4s;
+}
+
+/*=============== FOOTER ===============*/
+.footer {
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.footer__container {
+    padding: 2rem 0 2rem;
+}
+
+.footer__title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer__img {
+    background: url("../img/footer-img.webp");
+    background-size: cover;
+    background-position: 30% 50%;
+    height: 30rem;
+    position: relative;
+}
+
+.footer__item {
+    background-color: #FFF;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 250px;
+    padding: 1rem;
+    height: 300px;
+}
+
+.footer__padding {
+    padding-left: 1rem;
+}
+
+.footer__title-alt {
+    margin-bottom: var(--mb-0-75);
+}
+
+.footer__line {
+    content: "";
+    background-color: #1D1D1B;
+    height: 2px;
+    width: 30%;
+}
+
+.footer__description {
+    display: grid;
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+.footer__social {
+    display: flex;
+    justify-content: space-between;
+    width: 3rem;
+    margin-top: 1rem;
+}
+
+.footer__copy {
+    background-color: #c6c6c6;
+    padding: 1.5rem 0;
+    color: #FFF;
+}
+
+.footer__copy-item {
+    display: block;
+    text-align: center;
+    font-size: var(--smaller-font-size);
+}
+
+/*====================  ABOUT  ====================*/
+.about__container {
+    margin-bottom: var(--mb-3);
+}
+
+.about__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 1rem;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 440px;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(0,0,0,.1);
+    box-shadow: 0 4px 30px rgba(0,0,0,.1);
+    backdrop-filter: blur(5px);
+}
+
+.about__img {
+    width: 8rem;
+    border-radius: 50%;
+}
+
+.about__subtitle {
+    margin-bottom: 0;
+}
+
+.about__links-item {
+    font-size: 1rem;
+    padding: 1rem;
+    color: #1D1D1B;
+    transition: all .4s;
+}
+
+.about__links-item:hover {
+    color: #c6c6c6;
+}
+
+.about__text {
+    text-align: center;
+}
+
+/*=============== PAGES ===============*/
+.page__img{
+    width: 100%;
+    height: 14rem;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.page__images {
+    height: 210px;
+    overflow: hidden;
+}
+
+.page1__head-img {
+    background-image: url(../img/fiziktedavi-1.jpeg);
+}
+
+.page2__head-img {
+    background-image: url(../img/fiziktedavi-2.jpg);
+}
+
+.page3__head-img {
+    background-image: url(../img/fiziktedavi-3.jpg);
+}
+
+.page4__head-img {
+    background-image: url(../img/fiziktedavi-4.jpg);
+}
+
+.page5__head-img {
+    background-image: url(../img/fiziktedavi-5.jpg);
+}
+
+.page6__head-img {
+    background-image: url(../img/fiziktedavi-6.jpg);
+}
+
+.page7__head-img {
+    background-image: url(../img/fiziktedavi-7.jpg);
+}
+
+.page8__head-img {
+    background-image: url(../img/fiziktedavi-8.jpg);
+}
+
+.page9__head-img {
+    background-image: url(../img/fiziktedavi-9.jpg);
+}
+
+.page10__head-img {
+    background-image: url(../img/fiziktedavi-10.jpg);
+}
+
+.page__img img:hover {
+    transform: scale(1.1);
+    transition: all .4s;
+}
+
+.page__img-container:not(:last-child) {
+    padding-bottom: 2rem;
+}
+
+.page__title {
+    margin-bottom: var(--mb-2);
+}
+
+.page__subtitle {
+    padding-top: 2rem;
+}
+
+.page__description {
+    text-align: center;
+}
+
+
+/* For small devices */
+@media screen and (max-width: 350px){
+    .container{
+        margin-left: var(--mb-1);
+        margin-right: var(--mb-1);
+    }
+}
