@@ -530,11 +530,6 @@ PHYSIOTHERAPY
     background-color: #f1f1f1;
 }
 
-.footer__fixed {
-    position: fixed;
-    bottom: 0;
-}
-
 .footer__copy {
     background-color: #c6c6c6;
     padding: 1.5rem 0;
@@ -828,6 +823,11 @@ PHYSIOTHERAPY
 
     .social__size {
         font-size: 1.4rem;
+    }
+
+    .footer__fixed {
+        position: fixed;
+        bottom: 0;
     }
 }
 
