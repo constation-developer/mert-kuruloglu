@@ -4,28 +4,21 @@
 /*====================  VERIABLES CSS  ====================*/
 :root {
     --header-height: 3rem;
-
-    /*=========  Logo Colors  ==========*/
-    --logo-first-color: #1D1D1B;
-    --logo-second-color: #409DCA;
+    --header-height-md: 4.5rem;
 
     /*=========  Colors  =========*/
     /* Change favorite color*/
     --hue-color: 200; /*Purple 250 - Green 142 - Blue 200 - Pink 340*/
 
     /* HSL color mode */
-    --first-color: hsl(var(--hue-color), 69%, 61%);
-    --first-color-second: hsl(var(--hue-color), 69%, 61%);
-    --first-color-alt: hsl(var(--hue-color), 57%, 53%);
-    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-    --title-color: hsl(var(--hue-color), 8%, 15%);
-    --text-color: hsl(var(--hue-color), 8%, 45%);
-    --text-color-light: hsl(var(--hue-color), 8%, 75%);
-    --input-color: hsl(var(--hue-color), 70%, 96%);
+    --first-color: #1D1D1B;
+    --title-color: #1D1D1B;
+    --text-color-light: #767673;
     --body-color: hsl(var(--hue-color), 60%, 99%);
     --container-color: #FFF;
     --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+    --social-hover-color: #c6c6c6;
 
     /*=========  Font and typography  =========*/
     --body-font: 'Poppins', sans-serif;
@@ -142,7 +135,7 @@ img{
 
 /*======================  LAYOUT  ======================*/
 .container{
-    max-width: 768px;
+    max-width: 968px;
     margin-left: var(--mb-1-5);
     margin-right: var(--mb-1-5);
 }
@@ -288,11 +281,6 @@ img{
     background-color: #1D1D1B;
 }
 
-/* Change background header */
-.scroll-header{
-    box-shadow: 0 -1px 4px rgba(0,0,0,.15);
-}
-
 /*======================  HOME  ======================*/
 .home {
     display: flex;
@@ -305,7 +293,7 @@ img{
 }
 
 .home__title {
-    font-size: var(--h3-font-size);
+    font-size: var(--h1-font-size);
     text-transform: uppercase;
     padding: 5px 10px;
     border-radius: 5px;
@@ -369,12 +357,14 @@ PHYSIOTHERAPY
 /*======================  PHYSIOTHERAPY  ======================*/
 .physiotherapy__container {
     padding-top: 1rem;
+    justify-content: center;
 }
 
 .physiotherapy__card {
     background-color: #f1f1f1;
     border-radius: 1rem;
     margin: 1rem;
+    width: 320px;
 }
 
 .physiotherapy__card:hover.box__shadow {
@@ -386,6 +376,10 @@ PHYSIOTHERAPY
     height: 200px;
     background-size: cover;
     border-radius: 1rem 1rem 0 0;
+}
+
+.display-lg {
+    display: none;
 }
 
 .pysiotherapy__bg-one {
@@ -437,7 +431,10 @@ PHYSIOTHERAPY
 }
 
 .physiotherapy__item {
+    display: flex;
+    justify-content: center;
     margin: 0 auto;
+    padding-top: 1.5rem;
 }
 
 .physiotherapy__button {
@@ -458,22 +455,18 @@ PHYSIOTHERAPY
     transition: .4s;
 }
 
-/*=============== FOOTER ===============*/
-.footer {
-    width: 100%;
-    background-color: #f1f1f1;
+/*=============== CONTACT ===============*/
+
+.contact__container {
+    padding: 4rem 0;
 }
 
-.footer__container {
-    padding: 2rem 0 2rem;
-}
-
-.footer__title {
+.contact__title {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.footer__img {
+.contact__img {
     background: url("../img/footer-img.webp");
     background-size: cover;
     background-position: 30% 50%;
@@ -481,7 +474,7 @@ PHYSIOTHERAPY
     position: relative;
 }
 
-.footer__item {
+.contact__item {
     background-color: #FFF;
     position: absolute;
     top: 40%;
@@ -497,28 +490,49 @@ PHYSIOTHERAPY
     padding-left: 1rem;
 }
 
-.footer__title-alt {
+.contact__title-alt {
     margin-bottom: var(--mb-0-75);
 }
 
-.footer__line {
+.contact__line {
     content: "";
     background-color: #1D1D1B;
     height: 2px;
     width: 30%;
 }
 
-.footer__description {
+.contact__description {
     display: grid;
     gap: 1rem;
     padding-top: 1rem;
+    color: var(--text-color-light);
 }
 
-.footer__social {
+.contact__social {
     display: flex;
     justify-content: space-between;
     width: 3rem;
     margin-top: 1rem;
+}
+
+.contact__social-link {
+    color: #1D1D1B;
+    transition: all .4s;
+}
+
+.contact__social-link:hover {
+    color: var(--social-hover-color);
+}
+
+/*=============== FOOTER ===============*/
+.footer {
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.footer__fixed {
+    position: fixed;
+    bottom: 0;
 }
 
 .footer__copy {
@@ -536,6 +550,7 @@ PHYSIOTHERAPY
 /*====================  ABOUT  ====================*/
 .about__container {
     margin-bottom: var(--mb-3);
+    margin-top: var(--mb-1);
 }
 
 .about__card {
@@ -563,6 +578,10 @@ PHYSIOTHERAPY
     margin-bottom: 0;
 }
 
+.about__description-item {
+    color: var(--text-color-light);
+}
+
 .about__links-item {
     font-size: 1rem;
     padding: 1rem;
@@ -571,7 +590,7 @@ PHYSIOTHERAPY
 }
 
 .about__links-item:hover {
-    color: #c6c6c6;
+    color: var(--social-hover-color);
 }
 
 .about__text {
@@ -647,17 +666,210 @@ PHYSIOTHERAPY
 
 .page__subtitle {
     padding-top: 2rem;
+    color: var(--text-color-light);
 }
 
 .page__description {
     text-align: center;
 }
 
+/*=====================  SCROLL BAR  =====================*/
+::-webkit-scrollbar{
+    width: .60rem;
+    background-color: var(--scroll-bar-color);
+    border-radius: .5rem;
+}
 
+::-webkit-scrollbar-thumb{
+    background-color: var(--scroll-thumb-color);
+    border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: var(--text-color-light);
+}
+
+/*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 350px){
     .container{
         margin-left: var(--mb-1);
         margin-right: var(--mb-1);
     }
+
+    .home {
+        height: 30vh;
+    }
+
+    .physiotherapy__card {
+        width: 300px;
+    }
+
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+    .nav__menu {
+        width: 240px;
+        padding: 2rem 3.5rem 2rem 3rem;
+    }
+
+    .physiotherapy__card {
+        width: 400px;
+    }
+
+    .physiotherapy__container {
+        justify-content: center;
+    }
+    .physiotherapy__img {
+        height: 260px;
+    }
+
+    .page__img {
+        height: 20rem;
+    }
+    .page__description {
+        padding: 0 2rem;
+    }
+    .page__images {
+        height: 260px;
+    }
+
+    .contact__item {
+        width: 80%;
+        height: max-content;
+        padding: 2rem;
+    }
+
+    .about__card {
+        height: 400px;
+        row-gap: 1.4rem;
+    }
+    .about__img {
+        width: 10rem;
+    }
+    .about__description-item {
+        padding: 0 2rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body{
+        margin: var(--header-height-md) 0 0 0;
+    }
+
+    .nav{
+        height: calc(var(--header-height) + 1.5rem);
+        column-gap: 1rem;
+    }
+    .nav__menu {
+        width: max-content;
+        padding: 0;
+    }
+    .nav__btns {
+        display: none;
+    }
+    .nav__icon,
+    .nav__close,
+    .nav__toggle{
+        display: none;
+    }
+    .nav__list{
+        margin-top: 0;
+        display: flex;
+        column-gap: 2rem;
+    }
+    .nav__link:hover::before{
+        width: 100%;
+    }
+    .active-link::before {
+        width: 100%;
+    }
+
+    .home {
+        height: 45vh;
+    }
+
+    .physiotherapy__card{
+        width: 330px;
+    }
+    .physiotherapy__container {
+        grid-template-columns: repeat(2, 360px);
+        justify-items: center;
+        gap: 1rem;
+    }
+
+    .page__img {
+        height: 26rem;
+    }
+    .page__description {
+        padding: 0 6rem;
+    }
+    .page__images {
+        height: 320px;
+    }
+
+    .contact__item {
+        width: 60%;
+        top: 50%;
+    }
+    .contact__social {
+        width: 4rem;
+    }
+
+    .about__card {
+        height: 500px;
+        max-width: 500px;
+        row-gap: 2rem;
+    }
+    .about__img {
+        width: 12rem;
+    }
+
+    .social__size {
+        font-size: 1.4rem;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 968px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home {
+        height: 93vh;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .physiotherapy__card{
+        width: 270px;
+    }
+    .physiotherapy__container {
+        grid-template-columns: repeat(3, 300px);
+        justify-items: center;
+        gap: 1rem;
+    }
+    .display-lg {
+        display: block;
+    }
+
+    .contact__item {
+        width: 40%;
+        left: 75%;
+    }
+
+    .about__card {
+        height: 540px;
+        max-width: 540px;
+        row-gap: 1.4rem;
+    }
+    .about__img {
+        width: 14rem;
+    }
+    
 }
